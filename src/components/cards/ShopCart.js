@@ -21,10 +21,10 @@ const ShopCart = () => {
     }; 
     const clearCart= ()=>dispatch({type: TYPES.CLEAR});
   return (
-    <div>
+    <div className='shop'>
         <h2>Carrito de compras</h2>
         <h3>Productos</h3>
-        <div className='shop'>
+        <div className='products'>
             {
                products.map(product=><Products Key= {product.id} product={product} addCart={addCart}/>) 
             }

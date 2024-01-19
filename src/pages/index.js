@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Seven Indumentaria</title>
-        <meta name="author" content= "Guaspari Elisa" />
-        <meta name="keywords" content= "hoppy, beers" />
+        <title>Indumentaria</title> 
+        <meta name="author" content= "Grupo-7" />
+        <meta name="keywords" content= "indumentaria, dress" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
