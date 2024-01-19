@@ -1,9 +1,11 @@
 import React from 'react';
+import style from '../styles/footer.module.css';
+
 
 const Footer = () => {
   return (
     <footer>
-      <div className="social-media">
+      <div className={style.social_media}>
         <h3>Redes Sociales</h3>
         <ul>
           <li><a href="https://facebook.com">Facebook</a></li>
