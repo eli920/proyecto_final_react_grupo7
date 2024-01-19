@@ -35,7 +35,8 @@ const Products = ({ product, addCart }) => {
           }
         
         button {
-            width: 80%;    
+            width: 80%;
+            margin: 5px;    
         }
           
         img {
