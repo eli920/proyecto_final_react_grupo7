@@ -6,23 +6,22 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-  } */
+  }   */
   
-  .social_media, .conta-info, .subscribe, .useful-links{
+  .social_media, .conta_info, .subscribe, .useful_links{
     margin-bottom: 20px;
-    background-color: red;
   }
-  
+
   .social_media h3,
-  .contact-info h3,
+  .contact_info h3,
   .subscribe h3,
-  .useful-links h3,
+  .useful_links h3,
   .copyright p {
     margin-bottom: 20px;
-    color: #ffd700; /* Amarillo para resaltar títulos y texto */
+    color: #ffd700; 
   }
-/*   
-  ul {
+
+  /* ul {
     list-style: none;
     padding: 0;
   }
@@ -36,7 +35,7 @@
     text-decoration: none;
     transition: color 0.3s ease-in-out;
   }
-  
+   */
   a:hover {
     color: #ffd700; 
     text-decoration: none;
@@ -72,12 +71,12 @@
     color: #ffd700;
   }
   
-  .useful-links ul {
+  .useful_links ul {
     display: flex;
     justify-content: center;
   }
   
-  .useful-links li {
+  .useful_links li {
     margin: 0 15px;
   }
   
