@@ -1,15 +1,7 @@
-import Head from 'next/head'
-
+import Seccion from "../Components/Seccion";
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        
-      </Head>
-      <main>
-        
-      </main>
-    </>
-  )
+    < Seccion />
+  );
 }
