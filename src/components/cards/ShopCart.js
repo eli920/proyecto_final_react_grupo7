@@ -23,7 +23,6 @@ const ShopCart = () => {
     return (
         <>
             <div className='shop'>
-                <h2>Carrito de compras</h2>
                 <h3>Productos</h3>
                 <div className='products'>
                     {
@@ -35,36 +34,59 @@ const ShopCart = () => {
                     {
                         cart.map((item, i) => <Cart Key={i} item={item} removeCart={removeCart} />)
                     }
+                    <button onClick={clearCart}>Vaciar carrito</button>
+
                 </div>
-                <button onClick={clearCart}>Limpiar carrito</button>
+
 
             </div>
             <style jsx>
                 {`
-            
-             .products {
+             .shop {
+                display: grid;
+                grid-template-columns: repeat(1,1fr);
+                justify-content: center;
+                item-align: center
+             }
+             .shop h3 {
+                margin-left: 20px
+             }
+             .products {   
                  display: grid;
-                 grid-template-columns: repeat(3,1fr);
-                 justify-items: center;
-                 column-gap: 1.5em;
-                 row-gap:1.5em;
-                 margin-top: 20px;
-                 margin-bottom: 20px;
+                 grid-template-columns: repeat(4,1fr)  
              }
 
              .cart {
                 display: grid;
-                grid-templeate-columns: repeat (1, 1fr);
-                justify-items: rigth;
-                row-gap:1.5em;
+                grid-templeate-columns: repeat(1,1fr);
              }
-              
-             @media screen and (min-width: 768px) {
-             
-                 .products {
-                     grid-template-columns: repeat(5,1fr);
-                 }
-             }
+
+             button {
+                width: 10%;
+                border: solid grey;
+                border-radius: 5px;  
+                padding: 5px;
+                margin: 40px;
+            }
+
+            
+            
+            @media screen and (max-width: 1024px){
+                .products {
+                    grid-template-columns: repeat(3,1fr);
+                }
+            }
+            @media screen and (max-width: 769px){
+                .products {
+                    grid-template-columns: repeat(2,1fr);
+                }
+            }
+
+            @media screen and (max-width: 481px){
+                .products {
+                    grid-template-columns: repeat(1,1fr);
+                } 
+            
                
          `}
             </style>

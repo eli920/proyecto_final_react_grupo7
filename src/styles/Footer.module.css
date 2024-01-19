@@ -6,7 +6,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
-  }   */
+  }  
   
   .social_media, .conta_info, .subscribe, .useful_links{
     margin-bottom: 20px;
@@ -35,11 +35,11 @@
     text-decoration: none;
     transition: color 0.3s ease-in-out;
   }
-   */
+   
   a:hover {
     color: #ffd700; 
     text-decoration: none;
-  } */
+  } 
   
   .subscribe form {
     display: flex;
@@ -78,5 +78,5 @@
   
   .useful_links li {
     margin: 0 15px;
-  }
+  }*/
   

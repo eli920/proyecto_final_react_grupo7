@@ -4,21 +4,22 @@ import ShopCart from './ShopCart'
 const Section = () => {
   return (
     <>
-      <div className='sectionCards'>
+      <div className='section-cards'>
         <h2>Últimos productos disponibles</h2>
         <ShopCart />
       </div>
       <style jsx>
         {`
-        .sectionCards {
-            width: 100%;
+        .section-cards {
+            width: 90%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            allign-items: center;
         }
-        h1 {
-          padding-bottom: 20px
 
+        h2 {
+            margin-left: auto;
+            margin-right: auto
         }
 
         `}
