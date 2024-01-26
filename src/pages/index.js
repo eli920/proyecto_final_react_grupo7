@@ -6,8 +6,6 @@ import styles from '@/styles/Home.module.css'
 import Section from '@/components/cards/Section'
 import Seccion from '@/components/Seccion'
 
-
-
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
