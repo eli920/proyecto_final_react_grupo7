@@ -1,4 +1,5 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from 'react';
+import axios from 'axios';
 import { TYPES } from '@/actions/actions';
 import { shopInitialState } from '@/reducer/shopInitialState';
 import { shopReducer } from '@/reducer/shopReducer';
@@ -9,17 +10,70 @@ import Cart from './Cart';
 
 const ShopCart = () => {
     const [state, dispatch] = useReducer(shopReducer, shopInitialState);
+    console.log(state)
     const { products, cart } = state;
+    
+    //AXIOS
+    const updateState= async ()=> {
+        const ENDPOINT= {
+            products:"http://localhost:5000/products",
+            cart:"http://localhost:5000/cart"
+        };
+        const responseProducts= await axios.get(ENDPOINT.products);
+        const responseCart= await axios.get(ENDPOINT.cart);
+        const productsList= await responseProducts.data;
+        const cartList= await responseCart.data;
+        
+        dispatch({type:TYPES.READ_STATE, payload:{products:productsList, cart:cartList}});
 
-    const addCart = (id) => dispatch({ type: TYPES.ADD, payload: id });
-    const removeCart = (id, all) => {
-        if (all) {
-            dispatch({ type: TYPES.REMOVE_ALL, payload: id });
-        } else {
-            dispatch({ type: TYPES.REMOVE_ONE, payload: id });
+    }
+    useEffect(()=> {
+        updateState()
+    }, []);
+    
+    const addCart = async (id) => {
+        try {
+            await axios.post("http://localhost:5000/cart", { id });
+            dispatch({ type: TYPES.ADD, payload: id });
+        } catch (error) {
+            console.error('Error al agregar al carrito', error);
         }
     };
-    const clearCart = () => dispatch({ type: TYPES.CLEAR });
+    
+    const removeCart = async (id, all) => {
+        try {
+            if (all) {
+                await axios.delete(`http://localhost:5000/cart`);
+                dispatch({ type: TYPES.REMOVE_ALL, payload: id });
+            } else {
+                await axios.delete(`http://localhost:5000/cart/${id}`);
+                dispatch({ type: TYPES.REMOVE_ONE, payload: id });
+            }
+        } catch (error) {
+            console.error('Error al eliminar del carrito', error);
+        }
+    };
+
+    const clearCart = async () => {
+        try {
+            await axios.delete("http://localhost:5000/cart");
+            dispatch({ type: TYPES.CLEAR });
+        } catch (error) {
+            console.error('Error al vaciar el carrito', error);
+        }
+    };
+    
+    //FUNCIONES ANTES DE USAR AXIOS
+    //const addCart = (id) => dispatch({ type: TYPES.ADD, payload: id });
+    // const removeCart = (id, all) => {
+    //     if (all) {
+    //         dispatch({ type: TYPES.REMOVE_ALL, payload: id });
+    //     } else {
+    //         dispatch({ type: TYPES.REMOVE_ONE, payload: id });
+    //     }
+    // };
+    // const clearCart = () => dispatch({ type: TYPES.CLEAR });
+
     return (
         <>
             <div className='shop'>

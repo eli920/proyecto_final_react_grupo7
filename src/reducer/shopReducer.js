@@ -4,12 +4,22 @@ import { shopInitialState } from './shopInitialState';
 
 export const shopReducer = (state, action) => {
   switch (action.type) {
+    case TYPES.READ_STATE:{
+      return {
+        ...state,
+        products: action.payload.products,
+        cart: action.payload.cart
+      }
+    };
+    
     case TYPES.ADD:{
       let newItem= state.products.find(product=> product.id === action.payload);
       let itemInCart = state.cart.find(item=> item.id === newItem.id);
+      console.log(newItem);
+      console.log(itemInCart);
 
-      return itemInCart
-      ?{
+      if (state.cart.includes(newItem) && itemInCart) {
+        return {
         ...state,
         cart: state.cart.map(item=>
           item.id === newItem.id
@@ -19,12 +29,16 @@ export const shopReducer = (state, action) => {
             }
             : item
           )
+          }
       }
-      : {
+      else {
+        return {
         ... state,
         cart: [...state.cart, {...newItem, quantity: 1}]
+        }
       }
     };
+    
     case TYPES.REMOVE_ONE: {
       let itemRemove = state.cart.find(item => item.id === action.payload);
 
