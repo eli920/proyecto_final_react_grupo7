@@ -4,7 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importa Bootstrap
 
+
+
+
 const MyNavbar = ({ cartItems }) => {
+
   return (
     <Navbar bg="light" variant="light" expand="lg">
       <Navbar.Brand href="/">Mi Tienda</Navbar.Brand>

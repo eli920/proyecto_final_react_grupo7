@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from 'react';
+import {useState, useReducer, useEffect } from 'react';
 import axios from 'axios';
 import { TYPES } from '@/actions/actions';
 import { shopInitialState } from '@/reducer/shopInitialState';
@@ -7,10 +7,9 @@ import React from 'react';
 import Products from './Products';
 import Cart from './Cart';
 
-
 const ShopCart = () => {
     const [state, dispatch] = useReducer(shopReducer, shopInitialState);
-    console.log(state)
+    console.log(state); 
     const { products, cart } = state;
     
     //AXIOS
@@ -31,15 +30,6 @@ const ShopCart = () => {
         updateState()
     }, []);
     
-    // const addCart = async (id) => {
-    //     try {
-    //         await axios.post("http://localhost:5000/cart", {id});
-    //         dispatch({ type: TYPES.ADD, payload: id });
-          
-    //     } catch (error) {
-    //         console.error('Error al agregar al carrito', error);
-    //     }
-    // };
     const addCart = async (id) => {
         try {
           const product = products.find((product) => product.id === id);
@@ -58,31 +48,16 @@ const ShopCart = () => {
             });
           }
           dispatch({ type: TYPES.ADD, payload: id });
+          
         } catch (error) {
           console.error("Error al agregar al carrito", error);
         }
       };
    
-    
-    // const removeCart = async (id, all) => {
-    //     try {
-    //         if (all) {
-    //             await axios.delete(`http://localhost:5000/cart/${id}`);
-    //             dispatch({ type: TYPES.REMOVE_ALL, payload: id });
-    //         } else {
-    //             await axios.delete(`http://localhost:5000/cart/${id}`);
-    //             dispatch({ type: TYPES.REMOVE_ONE, payload: id });
-    //         }
-           
-    //     } catch (error) {
-    //         console.error('Error al eliminar del carrito', error);
-    //     }
-    // };
     const removeCart = async (id, all) => {
         try {
           const item = cart.find((item) => item.id === id);
           if (all) {
-            //esto está bien
             await axios.delete(`http://localhost:5000/cart/${id}`);
             dispatch({ type: TYPES.REMOVE_ALL, payload: id });
           } else {
@@ -98,23 +73,12 @@ const ShopCart = () => {
               dispatch({ type: TYPES.REMOVE_ONE, payload: id });
             }
           }
+          
         } catch (error) {
           console.error("Error al eliminar del carrito", error);
         }
       };
 
-    // const clearCart = async () => {
-    //     try {
-    //         cart.forEach(element => {
-    //           element.delete;
-    //         });
-    //         await axios.delete(`http://localhost:5000/cart`);
-    //         dispatch({ type: TYPES.CLEAR})
-
-    //     } catch (error) {
-    //         console.error('Error al vaciar el carrito', error);
-    //     }
-    // };
     const clearCart = async () => {
       try {
           // Iterar sobre cada elemento del carrito y eliminarlo uno por uno
@@ -124,13 +88,13 @@ const ShopCart = () => {
   
           // Después de eliminar todos los elementos del carrito, actualizar el estado local
           dispatch({ type: TYPES.CLEAR });
+          
       } catch (error) {
           console.error('Error al vaciar el carrito', error);
       }
+
   };
     
-
-
     return (
         <>
             <div className='shop'>
@@ -146,11 +110,11 @@ const ShopCart = () => {
                         cart.map((item, i) => <Cart key={i} item={item} removeCart={removeCart} />)
                     }
                     <button onClick={clearCart}>Vaciar carrito</button>
-
+                    
                 </div>
-
-
+                
             </div>
+           
             <style jsx>
                 {`
              .shop {
