@@ -12,10 +12,10 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "axios": "^1.6.5",
+    "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "json-server": "^0.17.4",
-    "next": "^14.0.4",
+    "next": "^14.2.1",
     "node": "^18.20.2",
     "react": "^18",
     "react-bootstrap": "^2.10.2",

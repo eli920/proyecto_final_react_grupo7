@@ -1,0 +1,8 @@
+.carousel-control {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .carousel-indicators {
+    bottom: 10px; /* Ajusta la posición vertical de los indicadores según sea necesario */
+  }  
