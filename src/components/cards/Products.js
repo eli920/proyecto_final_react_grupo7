@@ -17,7 +17,6 @@ const Products = ({ product, addCart }) => {
       
             .cards-products {
                 width: 170px;
-                height: 250px;
                 border: 1px solid;
                 border-radius: 10px;
             }
@@ -28,6 +27,8 @@ const Products = ({ product, addCart }) => {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                gap: 0.5rem;
+                margin-bottom: 1rem;
                 font-family: 'founders';
             }
             

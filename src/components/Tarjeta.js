@@ -17,9 +17,11 @@ const Tarjeta = ({descripcion}) => {
 
             <style jsx>{`
                 figure {
-                    width: 200px;
+                    background-color: ${bgColor};
+                    width: 250px;
                     height: 400px;
                     border: 2px solid black;
+                    border-radius: 5px;
                 }
                 img {
                     width: 100%;
@@ -33,11 +35,11 @@ const Tarjeta = ({descripcion}) => {
                     display: flex;
                     flex-direction: column;
                     allign-items: center;
+                    border-top: 1px solid black;
                 }
                 h2 {
                     text-align: center;
-                    padding: 0 0 5px 0;
-                    font-size: 1.2rem;
+                    font-weight: bold;
                 }
                 figcaption {
                     text-align: center;

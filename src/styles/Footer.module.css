@@ -75,6 +75,7 @@
   margin: 0 15px;
 }
 
-.footer .copyright {
-  grid-column: span 2;
+.copyright {
+  text-align: center;
+  padding-top: 0.5rem;
 }
