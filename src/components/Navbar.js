@@ -3,12 +3,11 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importa Bootstrap
+import ShopCart from './cards/ShopCart';
 
 
-
-
-const MyNavbar = ({ cartItems }) => {
-
+const MyNavbar = ({totalQuantity}) => {
+  
   return (
     <Navbar bg="light" variant="light" expand="lg">
       <Navbar.Brand href="/">Mi Tienda</Navbar.Brand>
@@ -23,9 +22,9 @@ const MyNavbar = ({ cartItems }) => {
         <Nav>
           <Nav.Link href="/carrito">
             <FontAwesomeIcon icon={faShoppingCart} />
-            {' '}
-            {cartItems}
-          </Nav.Link>
+              ({totalQuantity})
+              console.log({totalQuantity})
+           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

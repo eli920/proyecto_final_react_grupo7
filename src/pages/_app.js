@@ -8,11 +8,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <div className="app-container">
       {/* Navbar en la parte superior */}
-      <MyNavbar />
+      <MyNavbar/>
+
 
       {/* Contenido principal */}
       <main className="main-content">
         {/* Contenido de la aplicación, como el encabezado, el contenido principal, etc. */}
+       
         <Component {...pageProps} />
 
         {/* Carousel */}
@@ -26,3 +28,4 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp;
+

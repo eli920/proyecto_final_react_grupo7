@@ -67,6 +67,18 @@ export const shopReducer = (state, action) => {
         
     };
 
+    case TYPES.TOTAL_QUANTITY:
+      return {
+      ...state,
+      totalQuantity: action.payload
+    };
+
+    case TYPES.TOTAL_PRICE:
+      return {
+      ...state,
+      totalPrice: action.payload
+      };
+      
     default:
       return state;
   };

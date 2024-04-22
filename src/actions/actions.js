@@ -3,7 +3,7 @@ export const TYPES = {
     ADD: "Add",
     REMOVE_ONE: "Remove_one",
     REMOVE_ALL: "Remove_all",
-    CLEAR: "Clear"
-    // TOTAL_QUANTITY: "Total_quantity",
-    // TOTAL_PRICE: "Total_price"
+    CLEAR: "Clear",
+    TOTAL_QUANTITY: "Total_quantity",
+    TOTAL_PRICE: "Total_price"
 }
