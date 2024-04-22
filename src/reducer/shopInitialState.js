@@ -11,4 +11,5 @@ export const shopInitialState= {
         {id: 8, image: "https://trown.com.ar/wp-content/uploads/DSC04582-1.jpg", name: "Buzo Arbol", price: 62000}
     ],
     cart:[]
+   
 }

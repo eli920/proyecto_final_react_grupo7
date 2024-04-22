@@ -17,7 +17,6 @@ const Seccion = () => {
         <style jsx>{`
         section {
             width: 70%;
-            height: 20vh;
             display: flex;
             flex-direction: column;
             allign-items: center;

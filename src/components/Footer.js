@@ -4,7 +4,8 @@ import style from '../styles/Footer.module.css';
 
 const Footer = () => {
   return (
-    <footer className={style.footer}>
+    <footer>
+    <div className={style.footer}>
       <div className={style.social_media}>
         <h3>Redes Sociales</h3>
         <ul>
@@ -41,11 +42,11 @@ const Footer = () => {
           {/* Agrega más enlaces útiles según sea necesario */}
         </ul>
       </div>
-
+      </div>
       <div className={style.copyright}>
         <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
       </div>
-    </footer>
+  </footer>
   );
 };
 

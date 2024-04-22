@@ -8,8 +8,10 @@ import Products from './Products';
 import Cart from './Cart';
 import Modal from './Modal';
 
+
 const ShopCart = () => {
   const [state, dispatch] = useReducer(shopReducer, shopInitialState);
+  
   console.log(state);
   const { products, cart } = state;
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -149,12 +151,11 @@ const ShopCart = () => {
           <div>
             <h4>Cantidad de productos: {state.totalQuantity}</h4>
             <h4>Precio Total: ${state.totalPrice}</h4>
-            <Modal isOpen={isModalOpen} closeModal={closeModal} confirmPurchase={confirmPurchase} />
-          </div>
-          <div>
             <button onClick={openModal}>Confirmar</button>
             <button onClick={clearCart}>Vaciar carrito</button>
           </div>
+          
+          <Modal isOpen={isModalOpen} closeModal={closeModal} confirmPurchase={confirmPurchase} />
         </div>
       </div>
       <style jsx>
@@ -179,15 +180,13 @@ const ShopCart = () => {
              }
 
              button {
-                width: 10%;
+                width: 20%;
                 border: solid grey;
                 border-radius: 5px;  
                 padding: 5px;
                 margin: 40px;
             }
-
-            
-            
+ 
             
             @media screen and (max-width: 1024px){
                 .products {

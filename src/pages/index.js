@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Section from '@/components/cards/Section'
 import Seccion from '@/components/Seccion'
+import { shopReducer, shopInitialState } from '../reducer/shopReducer';
 
 const inter = Inter({ subsets: ['latin'] })
 
