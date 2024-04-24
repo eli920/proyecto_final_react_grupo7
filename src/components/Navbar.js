@@ -8,7 +8,7 @@ import { AppContext } from '../context/app';
 
 const MyNavbar = () => {
   const { state } = useContext(AppContext);
-
+  console.log('state ', state);
   return (
     <Navbar bg="light" variant="light" expand="lg">
       <Navbar.Brand href="/">Mi Tienda</Navbar.Brand>
@@ -23,7 +23,7 @@ const MyNavbar = () => {
         <Nav>
           <Nav.Link href="/carrito">
             <FontAwesomeIcon icon={faShoppingCart} />
-              {state?.cart?.length || 0}
+              {state?.totalQuantity || 0}
            </Nav.Link>
         </Nav>
       </Navbar.Collapse>

@@ -22,31 +22,35 @@ const ShopCart = () => {
   };
 
   const confirmPurchase = async () => {
-    try {
-      const product = products.find((product) => product.id === selectProduct);
-      const item = cart.find((item) => item.id === selectProduct);
-      if (item) {
-        // si el item ya está en el carrito, actualizo la cantidad en +1 (petición PUT - actualizar)
-        await axios.put("http://localhost:5000/cart/" + selectProduct, {
-          ...item,
-          quantity: item.quantity + 1,
-        });
-      } else {
-        //si no está en el carrito, agrego TODO el objeto
-        await axios.post("http://localhost:5000/cart", {
-          ...product,
-          quantity: 1,
-        });
-      }
-
-      setSelectProduct(null);
-      closeModal(); // Cerramos el modal
-      dispatch({ type: TYPES.ADD, payload: selectProduct });
-    } catch (error) {
-      console.error("Error al agregar al carrito", error);
+    if (!selectProduct) {
+      clearCart();  // Limpiamos el carrito después de confirmar la compra
+      alert("Compra confirmada! Gracias por tu pedido.");
+      closeModal();
+    } else {
+      try {
+        const product = products.find((product) => product.id === selectProduct);
+        const item = cart.find((item) => item.id === selectProduct);
+        if (item) {
+          // si el item ya está en el carrito, actualizo la cantidad en +1 (petición PUT - actualizar)
+          await axios.put("http://localhost:5000/cart/" + selectProduct, {
+            ...item,
+            quantity: item.quantity + 1,
+          });
+        } else {
+          //si no está en el carrito, agrego TODO el objeto
+          await axios.post("http://localhost:5000/cart", {
+            ...product,
+            quantity: 1,
+          });
+        }
+  
+        setSelectProduct(null);
+        closeModal(); // Cerramos el modal
+        dispatch({ type: TYPES.ADD, payload: selectProduct });
+      } catch (error) {
+        console.error("Error al agregar al carrito", error);
+      } 
     }
-    //clearCart();  // Limpiamos el carrito después de confirmar la compra
-    //alert("Compra confirmada! Gracias por tu pedido.");
   };
 
   const addCart = async (id) => {
@@ -78,20 +82,6 @@ const ShopCart = () => {
       console.error("Error al eliminar del carrito", error);
     }
   };
-
-  const calculateTotals = () => {
-    const totalQuantity = state.cart.reduce((total, item) => total + item.quantity, 0);
-    const totalPrice = state.cart.reduce((total, item) => total + (item.quantity * item.price), 0);
-
-    dispatch({ type: TYPES.TOTAL_QUANTITY, payload: totalQuantity });
-    dispatch({ type: TYPES.TOTAL_PRICE, payload: totalPrice });
-  };
-
-  useEffect(() => {
-    calculateTotals();
-  }, [state.cart]); // Recalcular cada vez que el carrito cambie
-
-  console.log(state.cart.quantity)
 
   const clearCart = async () => {
     try {
@@ -159,7 +149,7 @@ const ShopCart = () => {
              }
 
              button {
-                width: 20%;
+                width: 15%;
                 border: solid grey;
                 border-radius: 5px;  
                 padding: 5px;

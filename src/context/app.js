@@ -28,5 +28,17 @@ export const AppContextProvider = ({ children }) => {
         updateState();
     }, []);
 
+    const calculateTotals = () => {
+        const totalQuantity = state.cart.reduce((total, item) => total + item.quantity, 0);
+        const totalPrice = state.cart.reduce((total, item) => total + (item.quantity * item.price), 0);
+    
+        dispatch({ type: TYPES.TOTAL_QUANTITY, payload: totalQuantity });
+        dispatch({ type: TYPES.TOTAL_PRICE, payload: totalPrice });
+    };
+    
+    useEffect(() => {
+        calculateTotals();
+    }, [state?.cart]); 
+
     return <AppContext.Provider value={{ state, dispatch }}>{children}</AppContext.Provider>;
 };
