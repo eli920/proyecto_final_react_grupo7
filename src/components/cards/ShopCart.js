@@ -1,20 +1,17 @@
-import {useState, useReducer, useEffect } from 'react';
+import {useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { TYPES } from '@/actions/actions';
-import { shopInitialState } from '@/reducer/shopInitialState';
-import { shopReducer } from '@/reducer/shopReducer';
+import { AppContext } from '../../context/app';
 import React from 'react';
 import Products from './Products';
 import Cart from './Cart';
 import Modal from './Modal';
 
-
 const ShopCart = () => {
-  const [state, dispatch] = useReducer(shopReducer, shopInitialState);
-  
-  console.log(state);
+  const { state, dispatch} = useContext(AppContext);
   const { products, cart } = state;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectProduct, setSelectProduct] = useState(null);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -24,39 +21,13 @@ const ShopCart = () => {
     setIsModalOpen(false);
   };
 
-  const confirmPurchase = () => {
-    closeModal(); // Cerramos el modal
-    clearCart();  // Limpiamos el carrito después de confirmar la compra
-    alert("Compra confirmada! Gracias por tu pedido.");
-  };
-
-
-
-  //AXIOS
-  const updateState = async () => {
-    const ENDPOINT = {
-      products: "http://localhost:5000/products",
-      cart: "http://localhost:5000/cart"
-    };
-    const responseProducts = await axios.get(ENDPOINT.products);
-    const responseCart = await axios.get(ENDPOINT.cart);
-    const productsList = await responseProducts.data;
-    const cartList = await responseCart.data;
-
-    dispatch({ type: TYPES.READ_STATE, payload: { products: productsList, cart: cartList } });
-
-  }
-  useEffect(() => {
-    updateState()
-  }, []);
-
-  const addCart = async (id) => {
+  const confirmPurchase = async () => {
     try {
-      const product = products.find((product) => product.id === id);
-      const item = cart.find((item) => item.id === id);
+      const product = products.find((product) => product.id === selectProduct);
+      const item = cart.find((item) => item.id === selectProduct);
       if (item) {
         // si el item ya está en el carrito, actualizo la cantidad en +1 (petición PUT - actualizar)
-        await axios.put("http://localhost:5000/cart/" + id, {
+        await axios.put("http://localhost:5000/cart/" + selectProduct, {
           ...item,
           quantity: item.quantity + 1,
         });
@@ -67,12 +38,20 @@ const ShopCart = () => {
           quantity: 1,
         });
       }
-      dispatch({ type: TYPES.ADD, payload: id });
-      openModal();
 
+      setSelectProduct(null);
+      closeModal(); // Cerramos el modal
+      dispatch({ type: TYPES.ADD, payload: selectProduct });
     } catch (error) {
       console.error("Error al agregar al carrito", error);
     }
+    //clearCart();  // Limpiamos el carrito después de confirmar la compra
+    //alert("Compra confirmada! Gracias por tu pedido.");
+  };
+
+  const addCart = async (id) => {
+    setSelectProduct(id);
+    openModal();
   };
 
   const removeCart = async (id, all) => {
@@ -154,7 +133,7 @@ const ShopCart = () => {
             <button onClick={openModal}>Confirmar</button>
             <button onClick={clearCart}>Vaciar carrito</button>
           </div>
-          
+        
           <Modal isOpen={isModalOpen} closeModal={closeModal} confirmPurchase={confirmPurchase} />
         </div>
       </div>

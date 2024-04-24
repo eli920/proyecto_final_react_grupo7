@@ -51,11 +51,26 @@
   ],
   "cart": [
     {
-      "id": 6,
-      "image": "https://trown.com.ar/wp-content/uploads/DSC04599-1-scaled.jpg",
-      "name": "Buzo Parque",
-      "price": 62000,
+      "id": 3,
+      "image": "https://trown.com.ar/wp-content/uploads/DSC03551-1-scaled.jpg",
+      "name": "Remera Eco",
+      "price": 27000,
       "quantity": 1
+    },
+    {
+      "id": 4,
+      "image": "https://trown.com.ar/wp-content/uploads/DSC03711-1-scaled.jpg",
+      "name": "Remera 7 Lagos",
+      "price": 22000,
+      "quantity": 1
+    },
+    {
+      "quantity": 1,
+      "id": 5
+    },
+    {
+      "quantity": 1,
+      "id": 6
     }
   ]
 }
