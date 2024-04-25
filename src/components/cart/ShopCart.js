@@ -103,26 +103,26 @@ const ShopCart = () => {
   return (
     <>
       <div className='shop'>
-        <h3>Productos</h3>
+        <h4>Buzos y remeras</h4>
         <div className='products'>
           {
             products.map(product => <Products key={product.id} product={product} addCart={addCart} />)
           }
         </div>
 
-
-        <h3>Carrito</h3>
         <div className='cart'>
+        <h4>Carrito</h4>
           {
             cart.map((item, i) => <Cart key={i} item={item} removeCart={removeCart} />)
           }
 
-          <div>
-            <h4>Cantidad de productos: {state.totalQuantity}</h4>
-            <h4>Precio Total: ${state.totalPrice}</h4>
-            <button onClick={openModal}>Confirmar</button>
-            <button onClick={clearCart}>Vaciar carrito</button>
-          </div>
+          
+            <h6>Productos totales: {state.totalQuantity}</h6>
+            <h6>Precio Total: ${state.totalPrice}</h6>
+            <div className='end-confirm'>
+              <button onClick={openModal}>Confirmar compra</button>
+              <button onClick={clearCart}>Vaciar carrito</button>
+            </div>
         
           <Modal isOpen={isModalOpen} closeModal={closeModal} confirmPurchase={confirmPurchase} />
         </div>
@@ -135,7 +135,8 @@ const ShopCart = () => {
                 justify-content: center;
                 item-align: center
              }
-             .shop h3 {
+
+             .shop h4 {
                 margin-left: 20px
              }
              .products {   
@@ -144,16 +145,27 @@ const ShopCart = () => {
              }
 
              .cart {
+                max-width: 300px;
                 display: grid;
                 grid-templeate-columns: repeat(1,1fr);
+                justify-items: center;
+                border: 1px solid;
+                border-radius: 10px;
+                padding:10px 0px 10px 0px;
+                background-color: rgb(228, 227, 227);
+             }
+
+             .end-confirm {
+                display: flex;
+                justify-content: center;
              }
 
              button {
-                width: 15%;
+                width: 35%;
                 border: solid grey;
                 border-radius: 5px;  
-                padding: 5px;
-                margin: 40px;
+                padding: 2px;
+                margin:3px 3px 3px 0px;
             }
  
             

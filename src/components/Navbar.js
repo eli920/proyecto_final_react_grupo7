@@ -3,7 +3,7 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importa Bootstrap
-import ShopCart from './cards/ShopCart';
+import ShopCart from './cart/ShopCart';
 import { AppContext } from '../context/app';
 
 const MyNavbar = () => {

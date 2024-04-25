@@ -1,10 +1,9 @@
-
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import Section from '@/components/cards/Section'
+import Section from '@/components/cart/Section'
 import Seccion from '@/components/Seccion'
+import { Carousel } from 'react-bootstrap'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +19,7 @@ export default function Home() {
       <main className={`${styles.main} ${inter.className}`}>
         <Section/>
         <Seccion/>
+        <Carousel/>
       </main>
     </>
   )

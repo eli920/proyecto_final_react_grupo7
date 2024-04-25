@@ -7,7 +7,7 @@ const Cart = ({ item, removeCart }) => {
             <figure className='cards-cart'>
                 <img src={image} alt={name} />
                 <div className='description-cart'>
-                    <h4>{name}</h4>
+                    <span>{name}</span>
                     <h5>${price} x {quantity} = ${price * quantity}</h5>
                     <button onClick={() => removeCart(id, false)}>Eliminar</button>
                     <button onClick={() => removeCart(id, true)}>Eliminar todos</button>
@@ -49,7 +49,8 @@ const Cart = ({ item, removeCart }) => {
             
             button {
                 width: 70%;
-                padding:5px;
+                padding:3px;
+                margin:2px;
                 border: solid grey;
                 border-radius: 5px;
                 font-size: 0.65rem;  
