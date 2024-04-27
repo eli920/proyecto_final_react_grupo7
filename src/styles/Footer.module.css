@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 10px;
+  
 
   bottom: 0; /* Establece la posición inferior en 0 */
   width: 100%; /* Asegura que el footer tenga el ancho completo de la ventana */
