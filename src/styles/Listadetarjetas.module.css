@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cards-list {
+    display: flex; /* Cambiar de grid a flex */
+    flex-wrap: wrap; /* Añadir esta línea para que las tarjetas se envuelvan en varias líneas */
+    justify-content: center; /* Centrar las tarjetas horizontalmente */
+    gap: 20px;
+    width: 100%;
+  }
+
+
+  @media screen and (max-width: 1024px) {
+    .cards-list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 581px) {
+    .cards-list {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  

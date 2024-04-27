@@ -1,0 +1,19 @@
+.section {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin-top: 20px   ; /* Elimina los márgenes */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+  }
+  
+  .section h2 {
+    margin-bottom: 20px;
+    color: #ffd700;
+  }
+  
+  .section p {
+    margin-bottom: 20px;
+  }
+  

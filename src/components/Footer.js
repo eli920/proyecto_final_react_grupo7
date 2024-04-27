@@ -19,8 +19,8 @@ const Footer = () => {
 
       <div className={style.contact_info}>
         <h3>Información de Contacto</h3>
-        <p>Dirección: Calle 123, Ciudad, País</p>
-        <p>Email: info@example.com</p>
+        <p>Dirección: Calle 123, Buenos Aires, Argentina</p>
+        <p>Email: info@trown.com</p>
         <p>Teléfono: +123 456 789</p>
       </div>
 

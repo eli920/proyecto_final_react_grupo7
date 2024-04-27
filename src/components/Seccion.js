@@ -1,28 +1,16 @@
-import React from 'react'
-import ListaDeTarjetas from "./ListaDeTarjetas"
+import React from 'react';
+import ListaDeTarjetas from "./ListaDeTarjetas";
+import styles from '../styles/Seccion.module.css';
 
 const Seccion = () => {
-    
     return (
-        <>
-        <section>
-            <h2>¿Por que elegir 'nombre de la empresa'?</h2>
+        <section className={styles.section}>
+            <h2>¿Por qué elegir Trown?</h2>
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            En Trown nos enorgullecemos de ofrecer indumentaria de la más alta calidad. Cada pieza está cuidadosamente diseñada y fabricada con materiales premium para garantizar durabilidad y comodidad, brindando a nuestros clientes la confianza de lucir siempre impecables.
             </p>
-            <ListaDeTarjetas/>
+            <ListaDeTarjetas />
         </section>
-
-        <style jsx>{`
-        section {
-            width: 70%;
-            display: flex;
-            flex-direction: column;
-            allign-items: center;
-        }
-        `}</style>
-        </>
     );
 };
 

@@ -10,8 +10,8 @@ const MyNavbar = () => {
   const { state } = useContext(AppContext);
   console.log('state ', state);
   return (
-    <Navbar bg="light" variant="light" expand="lg">
-      <Navbar.Brand href="/">Mi Tienda</Navbar.Brand>
+    <Navbar bg="light" variant="light" expand="lg" style={{ paddingLeft: '20px'}}>
+      <Navbar.Brand href="/">Trown</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">

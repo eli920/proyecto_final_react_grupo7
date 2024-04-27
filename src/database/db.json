@@ -49,13 +49,5 @@
       "price": 62000
     }
   ],
-  "cart": [
-    {
-      "id": 6,
-      "image": "https://trown.com.ar/wp-content/uploads/DSC04599-1-scaled.jpg",
-      "name": "Buzo Parque",
-      "price": 62000,
-      "quantity": 1
-    }
-  ]
+  "cart": []
 }

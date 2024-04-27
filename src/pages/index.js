@@ -18,7 +18,9 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <Section/>
-        <Seccion/>
+       
+        <Seccion /> 
+      
         <Carousel/>
       </main>
     </>
